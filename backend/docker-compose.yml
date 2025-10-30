@@ -1,0 +1,36 @@
+services:
+  mongodb:
+    image: mongo:7
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+
+  backend:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - MONGODB_URI=mongodb://mongodb:27017/personal-library-manager
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=person@lL!braryMan@g3r
+      - JWT_REFRESH_SECRET=person@lL!braryMan@g3rR3fr3sh
+      - JWT_EXPIRE=15m
+      - JWT_REFRESH_EXPIRE=7d
+      - SMTP_HOST=smtp.gmail.com
+      - SMTP_PORT=587
+      - SMTP_PORT_SECURE=false
+      - SMTP_USER=laziestant@gmail.com
+      - SMTP_PASS=kibn zuyr opwh effm
+    depends_on:
+      - mongodb
+      - redis
+
+volumes:
+  mongodb_data:

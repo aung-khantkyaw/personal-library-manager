@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "66f9178d-c4aa-43f7-8c0b-04a78db9e1c2",
+		"name": "Personal Library Manager",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30957963",
+		"_collection_link": "https://grey-meadow-1982.postman.co/workspace/My-Workspace~ccd0d0bd-fd4f-4db8-89d1-68be6fe34a47/collection/30957963-66f9178d-c4aa-43f7-8c0b-04a78db9e1c2?action=share&source=collection_link&creator=30957963"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{development}}/api/auth/register",
+							"host": [
+								"{{development}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"aungkhantkyaw.info@gmail.com\",\r\n    \"password\": \"Admin@123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{development}}/api/auth/login",
+							"host": [
+								"{{development}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTAzOGExMGJjOWFmMTZlNzZhM2FjOGYiLCJpYXQiOjE3NjE4NDA4MDksImV4cCI6MTc2MjQ0NTYwOX0.mtJpyg14tuR_TL8N4dJk9oeEmWiYEWgoK55KchgXK4M\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{development}}/api/auth/refresh",
+							"host": [
+								"{{development}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"refresh"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Books (Protected)",
+			"item": [
+				{
+					"name": "All Books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTAzOGExMGJjOWFmMTZlNzZhM2FjOGYiLCJpYXQiOjE3NjE4NDA4MDksImV4cCI6MTc2MTg0MTcwOX0.VopXdnmqxzud9hUljGYz_sMX_bgW0inRAysRXq-wI3g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{development}}/api/books",
+							"host": [
+								"{{development}}"
+							],
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTAzOGExMGJjOWFmMTZlNzZhM2FjOGYiLCJpYXQiOjE3NjE4NDA4MDksImV4cCI6MTc2MTg0MTcwOX0.VopXdnmqxzud9hUljGYz_sMX_bgW0inRAysRXq-wI3g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{development}}/api/books/69038fc4e975c9a2e78fbd3d",
+							"host": [
+								"{{development}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"69038fc4e975c9a2e78fbd3d"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTAzOGExMGJjOWFmMTZlNzZhM2FjOGYiLCJpYXQiOjE3NjE4NDA4MDksImV4cCI6MTc2MTg0MTcwOX0.VopXdnmqxzud9hUljGYz_sMX_bgW0inRAysRXq-wI3g",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \"status\": \"completed\", \"rating\": 4 }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{development}}/api/books/69038fc4e975c9a2e78fbd3d",
+							"host": [
+								"{{development}}"
+							],
+							"path": [
+								"api",
+								"books",
+								"69038fc4e975c9a2e78fbd3d"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "- \\`POST /api/books\\` - Create book \n    \n\n> Headers: \\`Authorization: Bearer &lt;token&gt;\\`  \n  \n> Body: \\`{ \"title\": \"Book Title\", \"author\": \"Author\", \"status\": \"reading\", \"rating\": 5, \"review\": \"Great!\" }\\` \n  \n\n- \\`GET /api/books\\` - Get all user's books \n    \n\n> Headers: \\`Authorization: Bearer &lt;token&gt;\\` \n  \n\n- \\`PUT /api/books/:id\\` - Update book \n    \n\n> Headers: \\`Authorization: Bearer &lt;token&gt;\\`  \n  \n> Body: \\`{ \"status\": \"completed\", \"rating\": 4 }\\` \n  \n\n- \\`DELETE /api/books/:id\\` - Delete book \n    \n\n> Headers: \\`Authorization: Bearer &lt;token&gt;",
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2OTAzOGExMGJjOWFmMTZlNzZhM2FjOGYiLCJpYXQiOjE3NjE4NDE4MDIsImV4cCI6MTc2MTg0MjcwMn0.5ms0wDPzb2iQuMyzAs-BFC8oafDLrrl2AHJd1QamPGo",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{development}}/health",
+					"host": [
+						"{{development}}"
+					],
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
